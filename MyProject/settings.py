@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['http://192.168.20.108:8000/', '192.168.20.108:8000', '192.168.20.108', 'localhost', 'http://127.0.0.1:8000', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://lulupeitel-backend.onrender.com",
+]
+
 
 # Application definition
 
