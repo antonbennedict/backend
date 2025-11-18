@@ -8,6 +8,7 @@ from .serializer import RegistrationSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.urls import reverse
 
 @api_view(['POST'])
 def register_user(request):
@@ -88,14 +89,14 @@ def login_view(request):
 # ---------- LOGOUT ----------
 def logout_view(request):
     request.session.flush()
-    return redirect('home_html')
+    return redirect('Registration:login_html')
 
 
 # ---------- LOGIN REQUIRED DECORATOR ----------
 def login_required_view(fn):
     def wrapper(request, *args, **kwargs):
         if not request.session.get('user_id'):
-            return redirect(f"{reverse('Registration:login_html')}?next={request.path}")
+            return redirect(f"{reverse('login_html')}?next={request.path}")
         return fn(request, *args, **kwargs)
     wrapper.__name__ = fn.__name__
     return wrapper
