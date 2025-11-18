@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['http://192.168.20.108:8000/', '192.168.20.108:8000', '192.168.20.108', 'localhost', 'http://127.0.0.1:8000', '127.0.0.1', 'lulupeitel-backend.onrender.com', 'http://lulupeitel-backend.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://lulupeitel-backend.onrender.com",
+    "https://lulupeitel-backend.onrender.com", 'http://127.0.0.1:8000/',
 ]
 
 
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'MyProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "MyProject" / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
